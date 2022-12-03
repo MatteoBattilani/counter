@@ -5,6 +5,16 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.my-circle{
-  height: 100px;
+.mine-bg-color{
+  background: #dbefff;
+}
+
+.bar-color{
+  background-color: #351F39;
+}
+
+.barra{
+  border: 1px solid black;
+  border-radius: 50px ;
+  background-color: grey;
 }
