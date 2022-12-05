@@ -5,20 +5,57 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.mine-bg-color{
+.bg-color{
   background: #dbefff;
 }
 
-.bar-color{
+.counter-color{
   background-color: #351F39;
 }
 
-.barra{
-  border: 1px solid black;
-  border-radius: 50px ;
-  background-color: grey;
+.left{
+  border-top-left-radius: 45%;
+  border-bottom-left-radius: 45%;
 }
 
-.colore{
-background-color: black;
+.right{
+  border-top-right-radius: 45%;
+  border-bottom-right-radius: 45%;
+}
+
+.button-color{
+  background-color: #726A95;
+}
+
+.operands-text{
+  font-size: 50px;
+  color: white;
+}
+
+.btna {
+  text-decoration: none;
+  border: none;
+  padding: 12px 40px;
+  font-size: 16px;
+  color: #fff;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s all;
+}
+/* Adding transformation when the button is active */
+
+.btna:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+}
+
+#rotate{
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
