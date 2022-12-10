@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /*----------CUSTOMISED COLOURS----------*/
@@ -46,7 +46,6 @@
   text-decoration: none;
   border: none;
   padding: 12px 40px;
-  font-size: 16px;
   color: #fff;
   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
   cursor: pointer;
@@ -60,6 +59,33 @@
   /* Scaling button to 0.98 to its original size */
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   /* Lowering the shadow */
+}
+
+.show-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -50px;
+  width: 250px;
+  height: 50px;
+  background: #726A95;
+  color: #ffe7ff;
+  cursor: pointer;
+  font-size: 30px;
+  transition: 0.1s linear;
+  box-shadow: 0px 5px 16px -2px #000000;
+}
+
+.show-functions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 30px;
 }
 
 
@@ -78,9 +104,10 @@
   .desktop-width {
     width: 50%;
   }
+
 }
 
-/* Above 576px there are new shapes for the bottons.*/
+/* Above 768px there are new shapes for the bottons.*/
 @media screen and (min-width: 768px) {  
  
   .shape-minus{
@@ -97,6 +124,19 @@
 
   .desktop-height {
     height: 50%;
+  }
+
+  .functions-buttons-position{
+    bottom: 0px;
+  }
+
+}
+
+/* Up to 768px */
+@media screen and (max-width: 768px) {  
+ 
+  .functions-buttons-position{
+    bottom: -40px;
   }
 
 }

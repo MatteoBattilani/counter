@@ -18,25 +18,33 @@
 
 </head>
 <body class="d-flex align-items-center justify-content-center vw-100 vh-100 bg-color ">
-  
-  <div class="d-flex flex-column flex-md-row-reverse align-items-center h-75 w-75 pb-md-5 mb-md-5"> <!-- bg-primary-->
+
+  <div class="show-reset" style="top: -5px;">
+    Reset
+  </div>
+  <div class="d-flex flex-column flex-md-row-reverse align-items-center justify-content-center h-75 w-75 pb-5 mb-5 position-relative"> <!-- bg-primary-->
     <button class="button-color shape-plus btna mobile-width desktop-width desktop-height col-md-3">
       <span class="operands-text">+</span>
     </button>
     <div class="d-flex align-items-center justify-content-center counter-color h-50 mobile-width desktop-width">
-      <span class="counter-text ms-3 me-3 mb-3 text-break lh-1">3453443434</span>
+      <span class="counter-text ms-3 me-3 text-break lh-1">3</span>
     </div>
     <button class="button-color shape-minus btna mobile-width desktop-width desktop-height col-md-3">
       <span class="operands-text">-</span>
     </button>
+    <div class="show-functions functions-buttons-position">
+      <button class="rounded-pill button-color btna me-5 p-3">AUTO</button>
+      <button class="rounded-pill button-color btna ms-5 p-3">TIMER</button>
+    </div>
   </div>
+
 
 <!-- Link to the CSS/Js files and Bootstrap -END-
 
   1) Counter come richiesto da progetto-- > pulsante che permetta il reset!
   2) Automatic counter che fa +1 per ogni secondo. Quando lo si avvia c'è pulsante per stopparlo. (cronometro)
-  3) Funzione timer, parte da un numero e quando arriva a zero suona.
-  4) Se numeri counter escono fuori dal div, allora devono essere ridotti..> vedere tuttorial calcolatrice
+     Stabilire un numero raggiunto il quale si blocca.
+  3) Funzione timer, parte da un numero e quando arriva a zero suona.-- > limitare l'inserimento a 60 secondi.
 
 
 -->
