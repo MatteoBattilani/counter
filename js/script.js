@@ -78,7 +78,7 @@ function toggleAutoCounter() {
 
 // create the audio object for the alarm sound
 const alarmSound = new Audio();
-alarmSound.src = "/assets/audio/alarm.mp3";
+alarmSound.src = "./assets/audio/alarm.mp3";
 alarmSound.volume = 0.5;
 
 // variable containing the callback function for the countdown
