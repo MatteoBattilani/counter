@@ -1,22 +1,20 @@
-
-// Variabili
+// VARIABLES
 var counter = 0;
 var counterElement = document.getElementById("counter");
-var decrementButton = document.getElementById("decrement-button");
-var incrementButton = document.getElementById("increment-button");
-var resetButton = document.getElementById("reset-button");
+const decrementButton = document.getElementById("decrement-button");
+const incrementButton = document.getElementById("increment-button");
+const resetButton = document.getElementById("reset-button");
+const autoButton = document.getElementById("auto-button");
+const timerButton = document.getElementById("timer-button");
+var intervalId = 0; // initialises the interval ID to 0 --> This is used in toggleAutoCounter()
+var isRunning = false; // initialises the counter status to not running --> This is used in toggleAutoCounter()
 
-var autoButton = document.getElementById("auto-button");
-var intervalId = 0;  // inizializza l'ID dell'intervallo a 0
-var isRunning = false;  // inizializza lo stato del contatore a non in esecuzione
-
-// prendere riferimento al tasto "timer"
-const timerButton = document.getElementById('timer-button');
-
-
-// Listener for add or subtract 1 to the counter
-decrementButton.addEventListener("click", decrementCounter);
-incrementButton.addEventListener("click", incrementCounter);
+// LISTENERS
+decrementButton.addEventListener("click", decrementCounter); // Listener for add or subtract 1 to the counter
+incrementButton.addEventListener("click", incrementCounter); // Listener for add or subtract 1 to the counter
+resetButton.addEventListener("click", resetCounter); // Listener and function for reseting the counter via the reset button
+autoButton.addEventListener("click", toggleAutoCounter); // Listener and function for activate the auto function
+timerButton.addEventListener("click", toggleCountdown); // Listener and function for activate the timer function
 
 function decrementCounter() {
   counter--;
@@ -30,9 +28,6 @@ function incrementCounter() {
   showOrHideCounter();
 }
 
-// Listener and function for reseting the counter via the reset button
-resetButton.addEventListener("click", resetCounter);
-
 function resetCounter() {
   counter = 0;
   counterElement.innerHTML = counter;
@@ -40,107 +35,111 @@ function resetCounter() {
 }
 
 function showOrHideCounter() {
-  resetButton.style.display = (counter === 0) ? 'none' : 'flex';
+  resetButton.style.display = counter === 0 ? "none" : "flex";
 }
-
 
 /*
    -------------CODE FOR AUTO COUNT---------------
 */
 
-
-// Aggiungi un event listener per il pulsante "auto"
-autoButton.addEventListener("click", toggleAutoCounter);
-
-// Funzione per avviare/interrompere il contatore automatico
+// Function to start/stop the automatic counter
 function toggleAutoCounter() {
   if (isRunning) {
-    // Se il contatore è in esecuzione, interrompi l'intervallo
+    // If the counter is running, interrupt the interval
     autoButton.innerHTML = "AUTO";
+    timerButton.disabled = false;
+    decrementButton.disabled = false;
+    incrementButton.disabled = false;
     clearInterval(intervalId);
-    isRunning = false;  // imposta lo stato del contatore a non in esecuzione
+    isRunning = false;
     showOrHideCounter();
   } else {
-    // Altrimenti, avvia l'intervallo del contatore
+    // Otherwise, start the counter interval
     autoButton.innerHTML = "STOP";
+    timerButton.disabled = true;
+    decrementButton.disabled = true;
+    incrementButton.disabled = true;
     intervalId = setInterval(() => {
       counter++;
       counterElement.innerHTML = counter;
       if (counter === 10000) {
-        // Se il contatore raggiunge 10000, interrompi l'intervallo
+        // If the counter reaches 10000, interrupt the interval
         clearInterval(intervalId);
-        isRunning = false;  // imposta lo stato del contatore a non in esecuzione
+        isRunning = false;
       }
-    }, 1000);  // esegui il contatore ogni secondo (1000ms)
-    isRunning = true;  // imposta lo stato del contatore a in esecuzione
+    }, 1000); // run the counter every second (1000ms) --> to avoid delay in showing numbers
+    isRunning = true;
   }
 }
 
+/*
+   -------------CODE FOR TIMER FUNCTION---------------
+*/
 
+// create the audio object for the alarm sound
+const alarmSound = new Audio();
+alarmSound.src = "/assets/audio/alarm.mp3";
+alarmSound.volume = 0.5;
 
-
-
-
-
-
-
-
-
-// variabile che contiene la funzione di callback per il conto alla rovescia
+// variable containing the callback function for the countdown
 let countdownCallback = null;
 
-// funzione che inizializza o interrompe il conto alla rovescia
+// function that initialises or interrupts the countdown
 function toggleCountdown() {
-  // se il conto alla rovescia non è stato avviato, avviarlo
+  // if the countdown has not been started, start it
   if (countdownCallback === null) {
-    // prendere l'importo inserito dall'utente (in secondi)
-    const amount = parseInt(prompt('Inserisci un importo in secondi (massimo 120):'));
+    const amount = parseInt(
+      prompt("Enter an amount in seconds (maximum 120):")
+    );
 
-    // assicurarsi che l'importo sia valido e non superi i 120 secondi
-   
+    // ensure that the amount is valid and does not exceed 120 seconds
     if (isNaN(amount) || amount < 1 || amount > 120) {
-      alert('Importo non valido, inserisci un numero tra 1 e 120.');
+      alert("Invalid amount, please enter a number between 1 and 120.");
       return;
-      }
+    }
 
-      timerButton.innerHTML = "STOP";
-
-    // impostare il contatore sul valore inserito dall'utente
+    // set the counter to the value entered by the user
     let counter = amount;
- 
-    // funzione che esegue il conto alla rovescia
-    function countdown() {
-      // aggiornare il contenuto del div con il valore attuale del contatore
-      counterElement.textContent = counter;
 
-      // decrementare il contatore di 1
+    // countdown function
+    function countdown() {
+      counterElement.textContent = counter;
       counter--;
 
-      // se il contatore è arrivato a zero o il conto alla rovescia è stato interrotto, interrompere il conto alla rovescia
+      // if the counter has reached zero or the countdown has been interrupted, interrupt the countdown
       if (counter < 0 || countdownCallback === null) {
         countdownCallback = null;
+        if (counter < 0) {
+          alarmSound.play(); // play the alarm
+        }
+        timerButton.innerHTML = "TIMER";
+        autoButton.disabled = false;
         return;
       }
 
-      // altrimenti, richiamare questa funzione dopo 1 secondo
+      // otherwise, call up this function after 1 second
       setTimeout(countdown, 1000);
     }
 
-    // assegnare la funzione countdown() alla variabile countdownCallback
+    // assign the countdown() function to the countdownCallback variable
     countdownCallback = countdown;
 
-    // iniziare il conto alla rovescia
+    // start the countdown
     countdownCallback();
-    }
-    // altrimenti, se il conto alla rovescia è stato avviato, interromperlo
-    else {
-    // impostare countdownCallback su null per interrompere il conto alla rovescia
+
+    timerButton.innerHTML = "STOP";
+    autoButton.disabled = true;
+    decrementButton.disabled = true;
+    incrementButton.disabled = true;
+  }
+  // otherwise, if the countdown has been started, interrupt it
+  else {
+    // set countdownCallback to null to abort countdown
     countdownCallback = null;
     timerButton.innerHTML = "TIMER";
-    }
-    }
-
-
-    // assegnare all'evento "click" del tasto la funzione toggleCountdown()
-    timerButton.addEventListener('click', toggleCountdown);
-
+    resetButton.style.display = "flex";
+    autoButton.disabled = false;
+    decrementButton.disabled = false;
+    incrementButton.disabled = false;
+  }
+}
