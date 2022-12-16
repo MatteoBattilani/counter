@@ -1,60 +1,41 @@
 # Counter
-A counter providing, in addiction to the classic +1 and -1, two main functions: Auto and Timer.
+This project consists of a simple counter written in HTML, CSS and JavaScript. In addiction to the classic +1 and -1, it provides two main functions: 
+- Automatic function: the counter increases by one every second (10.000 seconds is the maximum value).
+- Timer function: the counter decreases until it reaches zero, with an interval of one second between each decrease. When zero is reached, an alarm sounds.
 
-𝐔𝐒𝐄𝐑 𝐈𝐍𝐓𝐄𝐑𝐅𝐀𝐂𝐄
-
-1) A short Bio
-2) Profile pic
-3) Link to Social and GitHub
-4) Links to other projects
-5) My skills
-6) A quick way to be contacted
-
-
-𝐋𝐈𝐕𝐄 𝐖𝐄𝐁𝐒𝐈𝐓𝐄 --> [Portfolio](https://matteobattilani.github.io)
-
+𝐋𝐈𝐕𝐄 𝐃𝐄𝐌𝐎 --> [Counter](https://matteobattilani.github.io/counter)
 
 ## 𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐢𝐞𝐬
 
 **Frameworks**
-- Bootstrap
+- This counter is built without frameworks
 
 **Languages**
 - HTML
 - CSS
+- JS
 
+## How to use it
 
-# Counter
+To use the counter, simply open the file `index.html` in a browser. The counter initialised at zero will be displayed. You can start the automatic count or the countdown using the two buttons '+' and '-', or the buttons 'auto' and 'timer' on the page.
 
-Questo progetto consiste in un semplice counter scritto in HTML, CSS e JavaScript. Include due funzionalità:
+## Features
 
-- Conteggio automatico: il contatore aumenta di uno ogni secondo.
-- Countdown: il contatore decrementa fino a raggiungere lo zero, con un intervallo di un secondo tra ogni decremento.
+- The counter is responsive and automatically adapts to the device in use.
+- The counter includes a button to reset the counter to zero.
+- The countdown includes an alarm functionality that emits a sound when the counter reaches zero.
 
-## Come usare
+## Project Structure
 
-Per utilizzare il counter, basta aprire il file `index.html` in un browser. Verrà visualizzato il contatore inizializzato a zero. È possibile avviare il conteggio automatico o il countdown utilizzando i pulsanti presenti nella pagina.
+The project is structured as follows:
 
-## Personalizzazione
+- `index.html`: the HTML file that includes the counter layout and links to the CSS and JavaScript files.
+- `style.css`: the CSS file that includes the counter style.
+- `script.js`: the JavaScript file that includes the counter and timer functionality.
+- `audio/`: a folder that includes the audio file of the countdown alarm.
 
-È possibile personalizzare il comportamento del counter modificando il file `script.js`. Ad esempio, è possibile cambiare l'incremento o il decremento del contatore o l'intervallo di tempo tra ogni passaggio.
+## Licence
 
-## Caratteristiche
+The project is distributed under the [MIT] licence.
 
-- Il counter è responsive e si adatta automaticamente al dispositivo in uso.
-- È possibile visualizzare il contatore in formato numerico o in formato a timer (ore, minuti, secondi).
-- Il counter include un pulsante per resettare il contatore a zero.
-- Il countdown include una funzionalità di allarme che emette un suono quando il contatore raggiunge lo zero.
-
-## Struttura del progetto
-
-Il progetto è strutturato come segue:
-
-- `index.html`: il file HTML che include il layout del counter e i link ai file CSS e JavaScript.
-- `style.css`: il file CSS che include lo stile del counter.
-- `script.js`: il file JavaScript che include le funzionalità del conteggio automatico e del countdown.
-- `audio/`: una cartella che include il file audio dell'allarme del countdown.
-
-## Licenza
-
-Il progetto è distribuito con licenza [nome della licenza].
+𝐋𝐈𝐕𝐄 𝐃𝐄𝐌𝐎 --> [Counter](https://matteobattilani.github.io/counter)
