@@ -8,7 +8,7 @@ This project consists of a simple counter written in HTML, CSS and JavaScript. I
 ## 𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐢𝐞𝐬
 
 **Frameworks**
-- This counter is built without frameworks
+- Bootstrap
 
 **Languages**
 - HTML
@@ -17,7 +17,7 @@ This project consists of a simple counter written in HTML, CSS and JavaScript. I
 
 ## How to use it
 
-To use the counter, simply open the file `index.html` in a browser. The counter initialised at zero will be displayed. You can start the automatic count or the countdown using the two buttons '+' and '-', or the buttons 'auto' and 'timer' on the page.
+To use the counter, simply open the file `index.html` in a browser. The counter initialised at zero will be displayed. You can start the automatic count or the countdown using the two buttons 'AUTO' and 'TIMER', or start the manual count using '+' and '-'.
 
 ## Features
 
@@ -33,6 +33,8 @@ The project is structured as follows:
 - `style.css`: the CSS file that includes the counter style.
 - `script.js`: the JavaScript file that includes the counter and timer functionality.
 - `audio/`: a folder that includes the audio file of the countdown alarm.
+- `images/`: a folder that includes the favicon for the web page.
+
 
 ## Licence
 
