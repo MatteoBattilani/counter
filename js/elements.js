@@ -1,5 +1,15 @@
 // JS CODE IN ORDER TO CREATE THE BODY OF THE HTML PAGE
 
+const body = document.body;
+body.classList.add(
+  "d-flex",
+  "align-items-center",
+  "justify-content-center",
+  "vw-100",
+  "vh-100",
+  "bg-color"
+);
+
 // RESET BUTTON
 var resetButtonDiv = document.createElement("div");
 resetButtonDiv.innerHTML = "Reset";
