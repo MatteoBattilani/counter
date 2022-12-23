@@ -1,11 +1,7 @@
 // VARIABLES
 var counter = 0;
 var counterElement = document.getElementById("counter");
-const decrementButton = document.getElementById("decrement-button");
-const incrementButton = document.getElementById("increment-button");
 const resetButton = document.getElementById("reset-button");
-const autoButton = document.getElementById("auto-button");
-const timerButton = document.getElementById("timer-button");
 var intervalId = 0; // initialises the interval ID to 0 --> This is used in toggleAutoCounter()
 var isRunning = false; // initialises the counter status to not running --> This is used in toggleAutoCounter()
 
